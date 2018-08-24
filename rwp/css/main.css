@@ -1,0 +1,395 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000000;
+}
+
+main {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+}
+
+.current-rider {
+  position: absolute;
+  width: 814px;
+  height: 110px;
+  left: 238px;
+  top: 598px;
+  background-image: url('../i/bg.png');
+  background-position: bottom left;
+  background-repeat: no-repeat;
+}
+
+.rider {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 698px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.rider h2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 605px;
+  height: 50px;
+  margin: 0;
+  padding: 0 12px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 50px;
+}
+
+.rider-bib {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 50px;
+  color: #662d91;
+}
+
+.rider-bib::before {
+  content: '(';
+}
+
+.rider-bib::after {
+  content: ')';
+}
+
+.rider-position {
+  position: absolute;
+  left: 605px;
+  top: 14px;
+  width: 93px;
+  height: 24px;
+  border-left: solid #000 1px;
+  line-height: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.rider-position::after {
+  content: ' место'
+}
+
+.rider-photo {
+  position: absolute;
+  left: -106px;
+  top: -68px;
+  width: 90px;
+  height: 121px;
+  background-color: #dadada;
+  padding: 9px 8px 8px;
+}
+
+.heat {
+  box-sizing: border-box;
+  padding: 7px 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(137, 215, 247, 0.7);
+}
+
+.current-rider .heat {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 535px;
+  height: 40px;
+}
+
+.results .heat {
+  background-color: rgba(239, 64, 54, 0.7);
+  justify-content: space-around;
+  margin: 0 0 17px;
+}
+
+.startlist .heat {
+  margin: 0 0 17px;
+}
+
+.prefix::before {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+.startlist .prefix::before {
+  line-height: 15px;
+  font-size: 13px;
+}
+
+.results .prefix::before {
+  display: initial;
+  font-size: 13px;
+  line-height: 35px;
+}
+
+.prefix {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
+.startlist .prefix {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.results .prefix {
+  font-size: 18px;
+  line-height: 35px;
+}
+
+
+.current-rider .heat-discipline {
+  font-size: 14px;
+}
+
+.heat-discipline::before {
+  content: 'Дисциплина: ';
+}
+
+.heat-category::before {
+  content: 'Категория: ';
+}
+
+.heat-round::before {
+  content: 'Раунд: ';
+}
+
+.score {
+  position: absolute;
+  box-sizing: border-box;
+  right: 0;
+  top: 0;
+  width: 116px;
+  height: 90px;
+  padding: 8px 10px;
+  overflow: hidden;
+  background-color: rgba(137, 215, 247, 0.7);
+}
+
+.score-current {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 50px;
+}
+
+.score-previous {
+  height: 32px;
+  border-bottom: 1px solid #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.score-previous::before {
+  display: block;
+  content: 'Попытка 1:';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+.attempt {
+  position: absolute;
+  box-sizing: border-box;
+  top: 0px;
+  left: 535px;
+  width: 70px;
+  height: 40px;
+  padding: 8px 10px;
+  overflow: hidden;
+  background-color: rgba(255, 195, 26, 0.7);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.attempt::before {
+  display: block;
+  content: 'Попытка:';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+.status {
+  position: absolute;
+  box-sizing: border-box;
+  top: 0px;
+  left: 605px;
+  width: 93px;
+  height: 40px;
+  padding: 8px 10px;
+  overflow: hidden;
+  background-color: rgba(239, 64, 54, 0.7);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.status::before {
+  display: block;
+  content: 'Статус:';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+.startlist {
+  position: absolute;
+  box-sizing: border-box;
+  left: 291px;
+  right: 291px;
+  top: 62px;
+  bottom: 62px;
+  padding: 18px 62px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.startlist::before,
+.startlist::after {
+  display: block;
+  position: absolute;
+  width: 698px;
+  height: 18px;
+  left: 0;
+  z-index: 100;
+  background-image: url('../i/header.png');
+  background-repeat: no-repeat;
+  content: '';
+}
+
+.startlist::before {
+  top: 0px;
+}
+
+.startlist::after {
+  bottom: 0px;
+}
+
+.results h1,
+.startlist h1 {
+  margin: 18px 0;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.riders {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.riders td {
+  height: 25px;
+}
+
+.riders thead {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.riders tbody td {
+  height: 40px;
+  border: solid 1px #000;
+  border-left: 0;
+  border-right: 0;
+}
+
+.startlist .riders tbody td:nth-child(1),
+.startlist .riders tbody td:nth-child(2) {
+  font-size: 24px;
+}
+
+.startlist .riders tbody td:nth-child(1) {
+  padding-left: 10px;
+  font-weight: 700;
+}
+
+.startlist .riders tbody td:nth-child(3) {
+  color: #662d91;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.results .riders tbody td:nth-child(1) {
+  padding-left: 10px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  color: #646464;
+}
+
+.results .riders tbody.riders-qualified td:nth-child(1) {
+  color: #000000;
+}
+
+.results .riders tbody td:nth-child(2) {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.results .riders tbody td:nth-child(3) {
+  font-size: 16px;
+}
+
+.results .riders tbody td:nth-child(4) {
+  font-size: 13px;
+}
+
+.results .riders tbody td:nth-child(5) {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: right;
+}
+
+
+.riders tfoot {
+  text-align: center;
+  font-size: 14px;
+}
+
+.results {
+  position: absolute;
+  box-sizing: border-box;
+  left: 59px;
+  right: 59px;
+  top: 62px;
+  bottom: 62px;
+  padding: 18px 62px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.results::before,
+.results::after {
+  display: block;
+  position: absolute;
+  width: 1171px;
+  height: 18px;
+  left: 0;
+  z-index: 100;
+  background-image: url('../i/pattern.png');
+  background-repeat: no-repeat;
+  content: '';
+}
+
+.results::before {
+  top: 0px;
+}
+
+.results::after {
+  bottom: 0px;
+}
