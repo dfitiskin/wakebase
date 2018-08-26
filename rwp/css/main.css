@@ -5,6 +5,7 @@ html, body {
   font-size: 12px;
   font-weight: 400;
   color: #000000;
+  background-color: #123;
 }
 
 main {
@@ -31,7 +32,7 @@ main {
   top: 40px;
   width: 698px;
   height: 50px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .rider h2 {
@@ -94,7 +95,7 @@ main {
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  background-color: rgba(137, 215, 247, 0.7);
+  background-color: rgba(137, 215, 247, 0.6);
 }
 
 .current-rider .heat {
@@ -106,12 +107,11 @@ main {
 }
 
 .results .heat {
-  background-color: rgba(239, 64, 54, 0.7);
-  justify-content: space-around;
-  margin: 0 0 17px;
+  background-color: rgba(239, 64, 54, 0.6);
 }
 
-.startlist .heat {
+.startlist .heat,
+.results .heat {
   margin: 0 0 17px;
 }
 
@@ -122,15 +122,10 @@ main {
   line-height: 10px;
 }
 
-.startlist .prefix::before {
+.startlist .prefix::before,
+.results .prefix::before {
   line-height: 15px;
   font-size: 13px;
-}
-
-.results .prefix::before {
-  display: initial;
-  font-size: 13px;
-  line-height: 35px;
 }
 
 .prefix {
@@ -139,16 +134,11 @@ main {
   line-height: 19px;
 }
 
-.startlist .prefix {
+.startlist .prefix,
+.results .prefix {
   font-size: 18px;
   line-height: 22px;
 }
-
-.results .prefix {
-  font-size: 18px;
-  line-height: 35px;
-}
-
 
 .current-rider .heat-discipline {
   font-size: 14px;
@@ -175,7 +165,7 @@ main {
   height: 90px;
   padding: 8px 10px;
   overflow: hidden;
-  background-color: rgba(137, 215, 247, 0.7);
+  background-color: rgba(137, 215, 247, 0.6);
 }
 
 .score-current {
@@ -208,7 +198,7 @@ main {
   height: 40px;
   padding: 8px 10px;
   overflow: hidden;
-  background-color: rgba(255, 195, 26, 0.7);
+  background-color: rgba(255, 195, 26, 0.6);
   font-size: 16px;
   font-weight: 700;
 }
@@ -230,7 +220,7 @@ main {
   height: 40px;
   padding: 8px 10px;
   overflow: hidden;
-  background-color: rgba(239, 64, 54, 0.7);
+  background-color: rgba(239, 64, 54, 0.6);
   font-size: 14px;
   font-weight: 700;
 }
@@ -243,7 +233,7 @@ main {
   line-height: 10px;
 }
 
-.startlist {
+.info {
   position: absolute;
   box-sizing: border-box;
   left: 291px;
@@ -251,11 +241,14 @@ main {
   top: 62px;
   bottom: 62px;
   padding: 18px 62px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: url('../i/back.png'), url('../i/back2.png');
+  background-repeat: no-repeat;
+  background-position: right bottom, left bottom;
 }
 
-.startlist::before,
-.startlist::after {
+.info::before,
+.info::after {
   display: block;
   position: absolute;
   width: 698px;
@@ -267,16 +260,15 @@ main {
   content: '';
 }
 
-.startlist::before {
+.info::before {
   top: 0px;
 }
 
-.startlist::after {
+.info::after {
   bottom: 0px;
 }
 
-.results h1,
-.startlist h1 {
+.info h1 {
   margin: 18px 0;
   padding: 0;
   font-size: 36px;
@@ -309,27 +301,20 @@ main {
   border-right: 0;
 }
 
-.startlist .riders tbody td:nth-child(1),
-.startlist .riders tbody td:nth-child(2) {
-  font-size: 24px;
-}
-
-.startlist .riders tbody td:nth-child(1) {
+.riders tbody td:nth-child(1) {
   padding-left: 10px;
+  font-size: 30px;
   font-weight: 700;
+  line-height: 40px;
 }
 
-.startlist .riders tbody td:nth-child(3) {
+.riders tbody td:nth-child(3) {
   color: #662d91;
   font-size: 16px;
   font-weight: 700;
 }
 
 .results .riders tbody td:nth-child(1) {
-  padding-left: 10px;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 40px;
   color: #646464;
 }
 
@@ -337,20 +322,35 @@ main {
   color: #000000;
 }
 
-.results .riders tbody td:nth-child(2) {
+.riders .rider-name {
+  display: block;
   font-size: 19px;
   font-weight: 700;
 }
+
+.riders .rider-yob,
+.riders .rider-region {
+  font-size: 14px;
+  color: #646464;
+}
+
+.riders .rider-yob::before {
+  content: 'Год рождения: ';
+  font-size: 12px;
+}
+
+.riders .rider-region::before {
+  content: 'Регион: ';
+  font-size: 12px;
+  padding-left: 50px;
+}
+
 
 .results .riders tbody td:nth-child(3) {
   font-size: 16px;
 }
 
 .results .riders tbody td:nth-child(4) {
-  font-size: 13px;
-}
-
-.results .riders tbody td:nth-child(5) {
   font-size: 18px;
   font-weight: 700;
   text-align: right;
@@ -360,36 +360,4 @@ main {
 .riders tfoot {
   text-align: center;
   font-size: 14px;
-}
-
-.results {
-  position: absolute;
-  box-sizing: border-box;
-  left: 59px;
-  right: 59px;
-  top: 62px;
-  bottom: 62px;
-  padding: 18px 62px;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-.results::before,
-.results::after {
-  display: block;
-  position: absolute;
-  width: 1171px;
-  height: 18px;
-  left: 0;
-  z-index: 100;
-  background-image: url('../i/pattern.png');
-  background-repeat: no-repeat;
-  content: '';
-}
-
-.results::before {
-  top: 0px;
-}
-
-.results::after {
-  bottom: 0px;
 }
