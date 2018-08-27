@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Тест трансляции</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      font-size: 100px;
+    }
+
+    main {
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    div {
+      width: 400px;
+      flex-basis: 400px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="time"></div>
+    <div class="name"></div>
+  </main>
+  <script>
+    const start = Date.now();
+    const timeCont = document.querySelector('.time');
+    const nameCont = document.querySelector('.name');
+
+    function loadNames() {
+      return fetch('names.json')
+        .then(res => res.json());
+    }
+
+    function randomInteger(min, max) {
+      const rand = min + Math.random() * (max + 1 - min);
+      return Math.floor(rand);
+    }
+
+    setInterval(i => {
+      timeCont.innerText = Math.round((Date.now() - start) / 1000);
+    }, 1000);
+
+    setInterval(i => {
+      loadNames()
+        .then(names => names[randomInteger(0, names.length - 1)])
+        .then(name => nameCont.innerText = name);
+    }, 2500);
+  </script>
+</body>
+</html>
